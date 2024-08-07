@@ -24,7 +24,7 @@ A simple To-Do List application built using Flutter, demonstrating the use of BL
 
 ## Screenshots
 # Home Screen
-<img src="https://github.com/user-attachments/assets/63b01f9f-5a73-4db3-8b5e-1236fdba83aa" width="250" height="250">
+<img src="https://github.com/user-attachments/assets/63b01f9f-5a73-4db3-8b5e-1236fdba83aa" width="400" height="250">
 
 # Add Task
 <img src="https://github.com/user-attachments/assets/09e28745-5145-483e-8ed4-e551086bd97d" width="250" height="250">

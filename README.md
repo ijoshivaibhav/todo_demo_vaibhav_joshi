@@ -22,14 +22,7 @@ A simple To-Do List application built using Flutter, demonstrating the use of BL
 3. **IDE**: Use an IDE such as [Visual Studio Code](https://code.visualstudio.com/) or [Android Studio](https://developer.android.com/studio).
 4. **Emulator or Physical Device**: Set up an Android emulator or connect a physical device. For iOS, use an iOS simulator (macOS only).
 
-## Getting Started
-
-### 1. Clone the Repository
-
-```sh
-git clone https://github.com/your-username/flutter-todo-app.git
-cd flutter-todo-app
-
+## Screenshots
 Home Screen
 ![blank](https://github.com/user-attachments/assets/63b01f9f-5a73-4db3-8b5e-1236fdba83aa)
 
@@ -54,3 +47,12 @@ Filter By Completed Tasks
 Filter By Pending task
 
 ![pending](https://github.com/user-attachments/assets/8443d94c-73d7-44fe-8705-f131d2b9fac2)
+
+## Getting Started
+
+### 1. Clone the Repository
+
+```sh
+git clone https://github.com/your-username/flutter-todo-app.git
+cd flutter-todo-app
+

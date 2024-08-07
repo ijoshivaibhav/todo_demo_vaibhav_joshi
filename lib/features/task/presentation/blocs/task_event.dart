@@ -31,3 +31,5 @@ class FilterTaskList extends TaskEvent {
 }
 
 class LoadCompletedTasks extends TaskEvent {}
+
+class LoadPendingTasks extends TaskEvent {}

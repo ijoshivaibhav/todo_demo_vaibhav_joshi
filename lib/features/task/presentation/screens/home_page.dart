@@ -21,6 +21,8 @@ class HomePage extends StatelessWidget {
                 context.read<TaskBloc>().add(LoadTasks());
               } else if (filter == StringConstants.completed) {
                 context.read<TaskBloc>().add(LoadCompletedTasks());
+              }else if (filter == StringConstants.pending) {
+                context.read<TaskBloc>().add(LoadPendingTasks());
               }
             },
             itemBuilder: (BuildContext context) {
@@ -31,6 +33,9 @@ class HomePage extends StatelessWidget {
                 const PopupMenuItem(
                     value: StringConstants.completed,
                     child: Text(StringConstants.completedTasks)),
+                const PopupMenuItem(
+                    value: StringConstants.pending,
+                    child: Text(StringConstants.pendingTasks)),
               ];
             },
           ),

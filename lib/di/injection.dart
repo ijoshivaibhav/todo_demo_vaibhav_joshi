@@ -3,6 +3,7 @@ import 'package:todo_demo_vaibhav_joshi/features/task/domain/usecases/add_task_u
 import 'package:todo_demo_vaibhav_joshi/features/task/domain/usecases/delete_task_usecase.dart';
 import 'package:todo_demo_vaibhav_joshi/features/task/domain/usecases/filter_tasks_use_case.dart';
 import 'package:todo_demo_vaibhav_joshi/features/task/domain/usecases/get_completed_task_usecase.dart';
+import 'package:todo_demo_vaibhav_joshi/features/task/domain/usecases/get_pending_task_usecase.dart';
 import 'package:todo_demo_vaibhav_joshi/features/task/domain/usecases/get_task_use_case.dart';
 import 'package:todo_demo_vaibhav_joshi/features/task/domain/usecases/mark_task_completed_use_case.dart';
 
@@ -23,6 +24,7 @@ Future<void> init() async {
     sl(),
     sl(),
     sl(),
+    sl(),
   ));
 
   // Use cases
@@ -32,6 +34,7 @@ Future<void> init() async {
   sl.registerLazySingleton(() => MarkTaskCompletedUseCase(sl()));
   sl.registerLazySingleton(() => FilterTasksUseCase());
   sl.registerLazySingleton(() => GetCompletedTasksUseCase(sl())); // Ensure this is registered
+  sl.registerLazySingleton(() => GetPendingTasksUseCase(sl())); // Ensure this is registered
 
   // Repository
   sl.registerLazySingleton<TaskRepository>(

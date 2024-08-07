@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_demo_vaibhav_joshi/features/task/domain/usecases/filter_tasks_use_case.dart';
+import 'package:todo_demo_vaibhav_joshi/features/task/domain/usecases/get_pending_task_usecase.dart';
 import '../../domain/usecases/add_task_usecase.dart';
 import '../../domain/usecases/delete_task_usecase.dart';
 import '../../domain/usecases/get_completed_task_usecase.dart';
@@ -15,6 +16,7 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
   final MarkTaskCompletedUseCase markTaskCompletedUseCase;
   final DeleteTaskUseCase deleteTaskUseCase;
   final FilterTasksUseCase filterTasksUseCase;
+  final GetPendingTasksUseCase pendingTasksUseCase;
 
   TaskBloc(
     this.getTasksUseCase,
@@ -23,6 +25,7 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
     this.markTaskCompletedUseCase,
     this.filterTasksUseCase,
     this.getCompleteTaskUseCase,
+    this.pendingTasksUseCase,
   ) : super(TaskInitial()) {
     on<LoadTasks>(_onLoadTasks);
     on<AddTask>(_onAddNewTask);
@@ -30,6 +33,10 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
     on<MarkTaskAsCompleted>(_onMarkTaskAsCompleted);
     on<FilterTaskList>(_onFilterTaskList);
     on<LoadCompletedTasks>(_onLoadCompletedTasks);
+    on<LoadPendingTasks>(_onLoadPendingTasks);
+    //Grocery shopping At DMART
+    //Meeting with General Manager at 7 PM
+    //Create a presentation on clean architecture
   }
 
   Future<void> _onLoadTasks(LoadTasks event, Emitter<TaskState> emit) async {
@@ -73,6 +80,16 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
     emit(TaskLoading());
     try {
       final tasks = await getCompleteTaskUseCase.call();
+      emit(TaskLoaded(tasks: tasks));
+    } catch (e) {
+      emit(TaskError(message: e.toString()));
+    }
+  }
+  Future<void> _onLoadPendingTasks(
+      LoadPendingTasks event, Emitter<TaskState> emit) async {
+    emit(TaskLoading());
+    try {
+      final tasks = await pendingTasksUseCase.call();
       emit(TaskLoaded(tasks: tasks));
     } catch (e) {
       emit(TaskError(message: e.toString()));
